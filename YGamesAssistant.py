@@ -46,5 +46,21 @@ __General Commands:__
 !servericon - the server icon.
 """, color=0xe88af4)
         await Client.say(embed=embed)
+	
+@Client.command()
+async def youtube():
+    await Client.say("""
+```The Server Youtube Channel```
+**Subscribe to the channel and do like to my videos!**
+Link: https://www.youtube.com/channel/UCBaFupHLmyMWSQ4vLvOVPrA
+""")
+
+@Client.command()
+async def discord():
+    await Client.say("""
+```My Discord Server```
+**Join to the server today!**
+Link: https://discord.gg/Fz5avXn
+""")
 
 Client.run(os.getenv("TOKEN"))
