@@ -44,8 +44,7 @@ __Information Commands:__
 __General Commands:__
 !avataricon @TAG - give the avatar icon of who you tag.
 !servericon - the server icon.
-""", color=0000ff)
+""", color=0xe88af4)
         await Client.say(embed=embed)
 
-	
 Client.run(os.getenv("TOKEN"))
