@@ -44,7 +44,8 @@ __Information Commands:__
 __General Commands:__
 **!avataricon @TAG** - give the avatar icon of who you tag. 
 **!servericon** - the server icon.
-**!question [a question] - the bot answer to your questions.
+**!question [a question] **- the bot answer to your questions.
+**!say (something)** - the bot say what you want him to say.
 
 __Staff Commands:__
 **!kick @TAG** - kick member from the server.
