@@ -37,14 +37,48 @@ async def help():
 **Bot prefix- !**
 ```YGames Assistant Commands list```
 __Information Commands:__
-!help - this command.
-!discord - the discord server of the bot owner. 
-!youtube - the youtube channel of the bot owner. 
+**!help** - this command.
+**!discord** - the discord server of the bot owner. 
+**!youtube** - the youtube channel of the bot owner. 
 
 __General Commands:__
-!avataricon @TAG - give the avatar icon of who you tag. 
-!servericon - the server icon.
+**!avataricon @TAG** - give the avatar icon of who you tag. 
+**!servericon** - the server icon.
+**!question [a question] - the bot answer to your questions.
+
+__Staff Commands:__
+**!kick @TAG** - kick member from the server.
+**!ban @TAG** - ban member from the server.
 """)
+
+@Client.command(pass_context=True)
+async def question(ctx):
+
+	possible_responses = ["לא", "כן", "אני לא בטוח, תשאל שוב אולי אני יחליט"]
+
+	current_response = random.choice(possible_responses)
+
+	await Client.say(current_response)
+
+@Client.command(pass_context = True)
+async def kick(ctx, userName: discord.User):
+    if ctx.message.author.server_permissions.kick_members or ctx.message.author.id == '194151340090327041':
+       await Client.kick(userName)
+       await Client.add_roles(member, role)
+       embed=discord.Embed(title="User Kicked!", description="**{0}** was kick by **{1}**!".format(member, ctx.message.author), color=0xff00f6)
+    else:
+        embed=discord.Embed(title="You cant kick this user!", description="You don't have permission to use this command.", color=0xff00f6)
+        await Client.say(embed=embed)
+
+@Client.command(pass_context = True)
+async def ban(ctx, userName: discord.User):
+    if ctx.message.author.server_permissions.ban_members or ctx.message.author.id == '194151340090327041':
+       await Client.ban(userName)
+       await Client.add_roles(member, role)
+       embed=discord.Embed(title="User Baned!", description="**{0}** was ban by **{1}**!".format(member, ctx.message.author), color=0xff00f6)
+    else:
+        embed=discord.Embed(title="You cant ban this user!", description="You don't have permission to use this command.", color=0xff00f6)
+        await Client.say(embed=embed)
 
 @Client.command()
 async def youtube():
