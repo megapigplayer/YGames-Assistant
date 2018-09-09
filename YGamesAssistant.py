@@ -15,7 +15,7 @@ owner = ["Insert-Owner-ID"]
 @Client.event
 async def on_ready():
     print(".Bot Is ready!")
-    await Client.change_status(game=discord.Game(name="!help | MegaMineBot"))
+    await Client.change_status(game=discord.Game(name="!help <> YGamesAssistant"))
 	
 @Client.command(pass_context=True, no_pm=True)
 async def servericon(ctx):
@@ -23,7 +23,7 @@ async def servericon(ctx):
     await Client.reply("{}".format(ctx.message.server.icon_url))
 
 @Client.command(pass_context=True, no_pm=True)
-async def membericon(ctx, member: discord.Member):
+async def avataricon(ctx, member: discord.Member):
     """User Avatar"""
     await Client.reply("{}".format(member.avatar_url))
 
@@ -33,9 +33,18 @@ async def say(output):
 	
 @Client.command()
 async def help():
-        embed = discord.Embed(title="Main Help עזרה ראשית", description="""
+        embed = discord.Embed(title="Commands List", description="""
+**Bot prefix- !**
+```YGames Assistant Commands list```
+__Information Commands:__
+!help - this command.
+!discord - the discord server of the bot owner.
+!youtube - the youtube channel of the bot owner.
 
-""", color=0xe88af4)
+__General Commands:__
+!avataricon @TAG - give the avatar icon of who you tag.
+!servericon - the server icon.
+""", color=0000ff)
         await Client.say(embed=embed)
 
 	
