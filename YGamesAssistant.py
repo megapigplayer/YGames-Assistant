@@ -33,7 +33,7 @@ async def say(output):
 	
 @Client.command()
 async def help():
-        embed = discord.Embed(title="Help", description="""
+    await Client.say("""
 **Bot prefix- !**
 ```YGames Assistant Commands list```
 __Information Commands:__
@@ -44,8 +44,7 @@ __Information Commands:__
 __General Commands:__
 !avataricon @TAG - give the avatar icon of who you tag. 
 !servericon - the server icon.
-""", color=0xe88af4)
-        await Client.say(embed=embed)
+""")
 
 @Client.command()
 async def youtube():
